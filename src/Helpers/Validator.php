@@ -21,11 +21,18 @@ class Validator implements ValidatorInterface
         $this->errors = array();
     }
 
+    /**
+     * Return all errors in object
+     * @return array
+     */
     public function getErrors()
     {
         return $this->errors;
     }
 
+    /**
+     * Clears error array
+     */
     public function unsetErrors()
     {
         $this->errors = array();
@@ -92,7 +99,7 @@ class Validator implements ValidatorInterface
     }
 
     /**
-     * Check if record exists in table
+     * Check if uniqueness of record in table
      * @param mixed $table
      * @param mixed $column
      * @param mixed $var

@@ -4,8 +4,6 @@ namespace App\Models;
 
 use App\Connection\Connection;
 use App\Helpers\AuthValidator;
-use App\Helpers\Helpers;
-use App\Helpers\Validator;
 
 require_once '../../vendor/autoload.php';
 
@@ -24,6 +22,7 @@ class Authentication
     }
 
     /**
+     * Log the user into their account
      * @param $username
      * @param $password
      * @throws \Exception
@@ -55,6 +54,7 @@ class Authentication
     }
 
     /**
+     * Validates user registration data and calls user store function
      * @param $email
      * @param $username
      * @param $password

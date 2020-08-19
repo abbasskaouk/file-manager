@@ -22,6 +22,7 @@ class File
     }
 
     /**
+     * Gets all files of logged in user
      * @param $page
      * @param $limit
      * @return false|PDOStatement
@@ -37,6 +38,7 @@ class File
     }
 
     /**
+     * Stores file data in database
      * @param $file
      * @param $name
      * @param $path
@@ -61,6 +63,7 @@ class File
     }
 
     /**
+     * Get number of pages for paginated list of files
      * @param $limit
      * @return false|float
      */
@@ -83,6 +86,12 @@ class File
         return ceil($total_results/$limit);
     }
 
+    /**
+     * Update file name in database
+     * @param $file
+     * @param $name
+     * @param $path]
+     */
     public function updateName($file, $name, $path)
     {
         try {
@@ -98,6 +107,10 @@ class File
         }
     }
 
+    /**
+     * Delete file record in database
+     * @param $id
+     */
     public function delete($id)
     {
         try {
@@ -113,6 +126,7 @@ class File
     }
 
     /**
+     * Search for file by path.
      * @param $path
      * @return mixed
      */

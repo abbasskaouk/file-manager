@@ -10,6 +10,7 @@ use App\Models\User;
 class AuthValidator extends Validator implements ValidatorInterface
 {
     /**
+     * Validate user input before login
      * @param $username
      * @param $password
      * @throws \Exception
@@ -45,6 +46,7 @@ class AuthValidator extends Validator implements ValidatorInterface
     }
 
     /**
+     * Validate user input before register
      * @param $email
      * @param $username
      * @param $password

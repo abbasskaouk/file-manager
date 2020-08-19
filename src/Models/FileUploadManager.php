@@ -23,6 +23,7 @@ class FileUploadManager
     }
 
     /**
+     * Validates file and calls file upload and file db store functions
      * @param $file
      * @param $name
      * @throws \Exception
@@ -38,6 +39,7 @@ class FileUploadManager
     }
 
     /**
+     * Removes file from storage and redirects to delete file from db function
      * @param $path
      * @throws \Exception
      */
@@ -61,6 +63,7 @@ class FileUploadManager
     }
 
     /**
+     * Uploads File to storage
      * @param $uploadedFile
      * @param $name
      * @return string
@@ -90,6 +93,7 @@ class FileUploadManager
     }
 
     /**
+     * Force Download file
      * @param $path
      */
     public function download($path)
@@ -102,12 +106,13 @@ class FileUploadManager
 
         if(file_exists($_SERVER['DOCUMENT_ROOT'].$path)) {
             header('Content-Description: File Transfer');
+            header("Content-Transfer-Encoding: Binary");
             header('Content-Type: application/octet-stream');
             header('Content-Disposition: attachment; filename="'.basename($path).'"');
             header('Expires: 0');
             header('Cache-Control: must-revalidate');
             header('Pragma: public');
-            header('Content-Length: ' . filesize($path));
+            header('Content-Length: ' . filesize($_SERVER['DOCUMENT_ROOT'].$path));
             flush(); // Flush system output buffer
             readfile($_SERVER['DOCUMENT_ROOT'].$path);
             die();
@@ -118,6 +123,7 @@ class FileUploadManager
     }
 
     /**
+     * Renames file in storage and calls db file store function
      * @param $path
      * @param $name
      */

@@ -32,7 +32,7 @@ class User
     }
 
     /**
-     * Get User by email or username
+     * Get User by username
      * @param mixed $query
      * @return mixed
      * @throws Exception
@@ -58,6 +58,7 @@ class User
     }
 
     /**
+     * Store user record in database
      * @param $email
      * @param $username
      * @param $password

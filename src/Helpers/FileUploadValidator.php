@@ -9,6 +9,7 @@ use PDOException;
 class FileUploadValidator extends Validator implements ValidatorInterface
 {
     /**
+     * Validate if file with same name and format has been uploaded for current user
      * @param $name
      * @param $file
      */
@@ -34,6 +35,7 @@ class FileUploadValidator extends Validator implements ValidatorInterface
     }
 
     /**
+     * Validate uploaded file information before uploading
      * @param $file
      * @param $name
      */
@@ -55,6 +57,11 @@ class FileUploadValidator extends Validator implements ValidatorInterface
         }
     }
 
+    /**
+     * Check if file with same name and format exists before renaming.
+     * @param $path
+     * @param $fileId
+     */
     public function validateRenameFile($path, $fileId)
     {
         try {
@@ -74,6 +81,7 @@ class FileUploadValidator extends Validator implements ValidatorInterface
     }
 
     /**
+     * Check if file size is below 8 MBs
      * @param $file
      */
     public function validateFileSize($file)
@@ -84,6 +92,7 @@ class FileUploadValidator extends Validator implements ValidatorInterface
     }
 
     /**
+     * Check if file field is empty
      * @param $file
      * @param $varName
      */
@@ -97,6 +106,7 @@ class FileUploadValidator extends Validator implements ValidatorInterface
     }
 
     /**
+     * Check if user owns file before letting them manipulate it
      * @param $path
      */
     public function validateFileOwnership($path)
